@@ -1,3 +1,4 @@
+import { NavLink } from "react-router"
 function Navbar() {
     return (
         <nav className="flex items-center px-8 py-7 gap-6">
@@ -5,10 +6,12 @@ function Navbar() {
                 <h2>My Website</h2>
             </div>
             <div className="flex items-center gap-6 mx-auto">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact Us</a>
+                <NavLink to="/" className={({ isActive }) =>
+                    isActive ? "text-red-500 font-bold" : "text-gray-700"
+                }>Home</NavLink>
+                <NavLink to="/about" className={({ isActive }) => isActive ? "text-red-500 font-bold" : "text-gray-700"}>About</NavLink>
+                <NavLink to="/services" className={({ isActive }) => isActive ? "text-red-500 font-bold" : "text-gray-700"}>Services</NavLink>
+                <NavLink to="/contact" className={({ isActive }) => isActive ? "text-red-500 font-bold" : "text-gray-700"}>Contact Us</NavLink>
             </div>
         </nav>
     )
